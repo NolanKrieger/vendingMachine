@@ -13,6 +13,16 @@ public class vending{
         int pepsi = 8;
         int drPepper = 9;
 
+        System.out.println("Snickers: 1");
+        System.out.println("Milkyway: 2");
+        System.out.println("Starburst: 3");
+        System.out.println("Water: 4");
+        System.out.println("Gatorade: 5");
+        System.out.println("Lemonade: 6");
+        System.out.println("Coke: 7");
+        System.out.println("Pepsi: 8");
+        System.out.println("Dr Pepper: 9");
+
         int machineNumber = 1;
 
         switch (machineNumber) {

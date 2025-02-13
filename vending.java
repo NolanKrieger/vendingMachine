@@ -13,36 +13,36 @@ public class vending{
         int pepsi = 8;
         int drPepper = 9;
 
-        System.out.println("Snickers: 1");
-        System.out.println("Milkyway: 2");
-        System.out.println("Starburst: 3");
-        System.out.println("Water: 4");
-        System.out.println("Gatorade: 5");
-        System.out.println("Lemonade: 6");
-        System.out.println("Coke: 7");
-        System.out.println("Pepsi: 8");
-        System.out.println("Dr Pepper: 9");
-
-        int machineNumber = 1;
+        System.out.println("Please enter a number into the machine.");
+        int machineNumber = scan.nextInt();
 
         switch (machineNumber) {
             case 1:
+                System.out.println("Snickers selected.");
                 break;
             case 2:
+                System.out.println("Milky Way selected.");
                 break;
             case 3:
+                System.out.println("Starburst selected.");
                 break;
             case 4:
+                System.out.println("Water selected.");
                 break;
             case 5:
+                System.out.println("Gatorade selected.");
                 break;
             case 6:
+                System.out.println("Lemonade selected.");
                 break;
             case 7:
+                System.out.println("Coke selected.");
                 break;
             case 8:
+                System.out.println("Pepsi selected.");
                 break;
             case 9:
+                System.out.println("Dr Pepper selected.");
                 break;
             default:
                 break;

@@ -23,8 +23,6 @@ public class vending{
             case 2:
                 System.out.println("Option 2 selected.");
                 break;
-            case 2:
-                break;
             case 3:
                 break;
             case 4:

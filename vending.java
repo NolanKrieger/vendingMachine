@@ -18,24 +18,31 @@ public class vending{
 
         switch (machineNumber) {
             case 1:
-                System.out.println("Option 1 selected.");
+                System.out.println("Snickers selected.");
                 break;
             case 2:
-                System.out.println("Option 2 selected.");
+                System.out.println("Milky Way selected.");
                 break;
             case 3:
+                System.out.println("Starburst selected.");
                 break;
             case 4:
+                System.out.println("Water selected.");
                 break;
             case 5:
+                System.out.println("Gatorade selected.");
                 break;
             case 6:
+                System.out.println("Lemonade selected.");
                 break;
             case 7:
+                System.out.println("Coke selected.");
                 break;
             case 8:
+                System.out.println("Pepsi selected.");
                 break;
             case 9:
+                System.out.println("Dr Pepper selected.");
                 break;
             default:
                 break;

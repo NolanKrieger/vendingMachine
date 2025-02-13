@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 public class vending{
     public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
         int snickers = 1;
         int milkyway = 2;
         int starburst = 3;

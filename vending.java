@@ -13,10 +13,15 @@ public class vending{
         int pepsi = 8;
         int drPepper = 9;
 
-        int machineNumber = 1;
+        System.out.println("Please enter a number into the machine.");
+        int machineNumber = scan.nextInt();
 
         switch (machineNumber) {
             case 1:
+                System.out.println("Option 1 selected.");
+                break;
+            case 2:
+                System.out.println("Option 2 selected.");
                 break;
             default:
                 break;

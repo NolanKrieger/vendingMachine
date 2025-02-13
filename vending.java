@@ -13,6 +13,16 @@ public class vending{
         int pepsi = 8;
         int drPepper = 9;
 
+        System.out.println("Snickers: $2.49");
+        System.out.println("Milkyway: $2.49");
+        System.out.println("Starburst: $1.49");
+        System.out.println("Water: $1.99");
+        System.out.println("Gatorade: $2.49");
+        System.out.println("Lemonade: $2.99");
+        System.out.println("Coke: $2.99");
+        System.out.println("Pepsei: $2.99");
+        System.out.println("Dr Pepper: $2.99");
+
         System.out.println("Please enter a number into the machine.");
         int machineNumber = scan.nextInt();
 

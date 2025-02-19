@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class vending {
     public static double purchase(String machineNum, double price, double balance) {
-        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in); // Opens scanner
 
-        double change = 0;
+        double change = 0; // Creates change variable
 
         // Added for better immersion, will take method inputs and provide a corresponding message so the user feels serviced.
         if (machineNum.equals("1a")) {
@@ -53,6 +53,7 @@ public class vending {
             System.out.println("That will be $" + price);
         }
 
+        // Prompts user to confirm or cancel order, reads in line and gives a response
         System.out.println("Are you sure you would like to purchase item " + machineNum + " for $" + price + "?");
         System.out.println("Enter 'confirm' to continue, or 'cancel' to exit the transaction.");
         String confirm = scan.nextLine();
@@ -73,7 +74,7 @@ public class vending {
 
         String choice = scan.nextLine();
 
-        // If user inputs "Y", then purchase details are listed. If not, then nothing is listed
+        // Asks user about receipt. Y/y means yes, N/n means no, any other input defaults to yes
         if (choice.equals("Y") || choice.equals("y")) {
             System.out.println("Item cost: " + price);
             System.out.println("Your change is: " + change);
@@ -95,12 +96,13 @@ public class vending {
     }
 
     public static void main(String[] args) {
+        // Opens scanner, as well as some other necessary variables
         Scanner venScan = new Scanner(System.in);
         int balance = 0;
         boolean hasMoney = true;
-        boolean firstRun = true;
         System.out.println("Welcome to the vending machine. Please enter money into the machine. Only $1 bills are allowed.\n\nHow many would you like to enter?");
 
+        // Full detailed list of all available items
         System.out.println("===== REFRIDGERATED SECTION =====");
         System.out.println("|| 1a - Coke             $2.99 ||");
         System.out.println("|| 2a - Sprite           $2.99 ||");
@@ -127,13 +129,15 @@ public class vending {
         System.out.println("|| 4c - Pretzels         $1.49 ||");
         System.out.println("======= To exit, enter -1 =======");
 
-        while (hasMoney) {
+        // This while loop allows the vending machine to be operational unless forcibly closed (enter -1)
+        while (hasMoney) { // hasMoney would be used if the money value saved every transaction, but that is not yet implemented.
             if (venScan.hasNextInt()) { // Check if the next input is a valid integer
                 balance = venScan.nextInt();
                 venScan.nextLine();
                 
                 System.out.println(balance + " dollar bills have been added to the vending machine.");
 
+                // If user has enough money, then they may select and purchase
                 if (balance > 0) {
                     System.out.println("The following items are the options in the vending machine:");
                     hasMoney = true;
@@ -155,6 +159,7 @@ public class vending {
 
             double price = 0;
 
+            // Sets the price for each item
             double price1 = 2.99;
             double price2 = 2.99;
             double price3 = 2.99;
@@ -178,9 +183,11 @@ public class vending {
             double price21 = 1.99;
             double price22 = 1.49;
 
+            // User is prompted to enter a number into machine, their response will then be caught be switch case
             System.out.println("Please enter a number into the machine.");
             String machineNumber = venScan.nextLine();
 
+            // Depending on user input, a case is called. When a case is called, user receives feedback of selection, and item price is set.
             switch (machineNumber) {
                 case "1a":
                     System.out.println("Coke selected.");
@@ -220,60 +227,60 @@ public class vending {
                     break;
                 case "1b":
                     System.out.println("Sparkling Water selected.");
-                    price = price9;
+                    price = price10;
                     break;
                 case "2b":
                     System.out.println("Snickers selected.");
-                    price = price9;
+                    price = price11;
                     break;
                 case "3b":
                     System.out.println("Milky Way selected.");
-                    price = price9;
+                    price = price12;
                     break;
                 case "4b":
                     System.out.println("Starburst selected.");
-                    price = price9;
+                    price = price13;
                     break;
                 case "5b":
                     System.out.println("Cookies selected.");
-                    price = price9;
+                    price = price14;
                     break;
                 case "6b":
                     System.out.println("Pringles selected.");
-                    price = price9;
+                    price = price15;
                     break;
                 case "7b":
                     System.out.println("Chocolate selected.");
-                    price = price9;
+                    price = price16;
                     break;
                 case "8b":
                     System.out.println("Potato Chips selected.");
-                    price = price9;
+                    price = price17;
                     break;
                 case "9b":
                     System.out.println("Doritos selected.");
-                    price = price9;
+                    price = price18;
                     break;
                 case "1c":
                     System.out.println("Granola Bar selected.");
-                    price = price9;
+                    price = price19;
                     break;
                 case "2c":
                     System.out.println("M&M's selected.");
-                    price = price9;
+                    price = price20;
                     break;
                 case "3c":
                     System.out.println("Cheetos selected.");
-                    price = price9;
+                    price = price21;
                     break;
                 case "4c":
                     System.out.println("Pretzels selected.");
-                    price = price9;
+                    price = price22;
                     break;
                 default:
                     break;
             }
-            purchase(machineNumber, price, balance);
+            purchase(machineNumber, price, balance); // Calls purchase function to begin transaction
         }
         venScan.close(); // Close scanner at the end
     }

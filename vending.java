@@ -4,6 +4,7 @@ public class vending {
     public static double purchase(double machineNum, double price, double balance) {
         double change = 0;
 
+        // Added for better immersion, will take method inputs and provide a corresponding message so the user feels serviced.
         if (machineNum == 1 && balance >= 2.49) {
             System.out.println("That will be $" + price);
             change = balance - price;
@@ -39,13 +40,16 @@ public class vending {
         Scanner scan = new Scanner(System.in);
         String choice = scan.nextLine();
 
+        // If user inputs "Y", then purchase details are listed. If not, then nothing is listed
         if (choice.equals("Y")) {
             System.out.println("Item cost: " + price);
             System.out.println("Your change is: " + change);
-            System.out.println("Have a wonderful day!");
+            System.out.println("Have a wonderful day!\nIf you would like to purchase another item, please enter sufficient funds.");
+            System.out.println("If you would like to exit instead, enter -1.");
             return balance;
         } else {
-            System.out.println("Have a wonderful day!");
+            System.out.println("Have a wonderful day!\nIf you would like to purchase another item, please enter sufficient funds.");
+            System.out.println("If you would like to exit instead, enter -1.");
             return balance;
         }
     }
@@ -56,12 +60,24 @@ public class vending {
         boolean hasMoney = true;
         System.out.println("Welcome to the vending machine. Please enter money into the machine. Only $1 bills are allowed.\n\nHow much would you like to enter?");
 
+        System.out.println("1: Snickers: $2.49");
+        System.out.println("2: Milkyway: $2.49");
+        System.out.println("3: Starburst: $1.49");
+        System.out.println("4: Water: $1.99");
+        System.out.println("5: Gatorade: $2.49");
+        System.out.println("6: Lemonade: $2.99");
+        System.out.println("7: Coke: $2.99");
+        System.out.println("8: Pepsi: $2.99");
+        System.out.println("9: Dr Pepper: $2.99");
+        System.out.println("To exit, enter -1.");
+
         while (hasMoney) {
             if (venScan.hasNextInt()) { // Check if the next input is a valid integer
                 balance = venScan.nextInt();
                 venScan.nextLine();  // Consume the newline left by nextInt()
                 
                 if (balance > 0) {
+                    System.out.println("The following items are the options in the vending machine:");
                     hasMoney = true;
                     if (balance < 1.49) {
                         System.out.println("You currently do not have sufficient funds to purchase anything.");
@@ -79,7 +95,6 @@ public class vending {
                 continue;
             }
 
-            System.out.println("The following items are the options in the vending machine:");
             double price = 0;
 
             int snickers = 1;
@@ -101,16 +116,6 @@ public class vending {
             double price7 = 2.99;
             double price8 = 2.99;
             double price9 = 2.99;
-
-            System.out.println("1: Snickers: $2.49");
-            System.out.println("2: Milkyway: $2.49");
-            System.out.println("3: Starburst: $1.49");
-            System.out.println("4: Water: $1.99");
-            System.out.println("5: Gatorade: $2.49");
-            System.out.println("6: Lemonade: $2.99");
-            System.out.println("7: Coke: $2.99");
-            System.out.println("8: Pepsi: $2.99");
-            System.out.println("9: Dr Pepper: $2.99");
 
             System.out.println("Please enter a number into the machine.");
             int machineNumber = venScan.nextInt();
@@ -156,10 +161,8 @@ public class vending {
                 default:
                     break;
             }
-
             purchase(machineNumber, price, balance);
         }
-
         venScan.close(); // Close scanner at the end
     }
 }

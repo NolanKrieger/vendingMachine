@@ -2,52 +2,66 @@ import java.util.Scanner;
 
 public class vending {
     public static double purchase(double machineNum, double price, double balance) {
+        Scanner scan = new Scanner(System.in);
+
         double change = 0;
 
         // Added for better immersion, will take method inputs and provide a corresponding message so the user feels serviced.
         if (machineNum == 1 && balance >= 2.49) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 2 && balance >= 2.49) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 3 && balance >= 1.49) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 4 && balance >= 1.99) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 5 && balance >= 2.49) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 6 && balance >= 2.99) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 7 && balance >= 2.99) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 8 && balance >= 2.99) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         } else if (machineNum == 9 && balance >= 2.99) {
             System.out.println("That will be $" + price);
-            change = balance - price;
         }
 
-        System.out.println("Your change is $" + change);
-        System.out.println("Thank you for your purchase. Your change is $" + change + " Would you like your receipt? Enter Y or N.");
+        System.out.println("Are you sure you would like to purchase item " + machineNum + " for $" + price + "?");
+        System.out.println("Enter 'confirm' to continue, or 'cancel' to exit the transaction.");
+        String confirm = scan.nextLine();
 
-        Scanner scan = new Scanner(System.in);
+        if (confirm.equals("confirm")) {
+            change = balance - price;
+            System.out.println("Thank you for your purchase. Your change is $" + change + " Would you like your receipt? Enter Y or N.");
+        } else if (confirm.equals("cancel")) {
+            System.out.println("Purchase canceled. A full refund has been issued.");
+            System.out.println("Have a great day!\nIf you would like to purchase another item, please enter sufficient funds.");
+            System.out.println("If you would like to exit instead, enter -1.");
+            return balance;
+        } else {
+            System.out.println("Error: invalid input provided, canceling transaction. A full refund has been issued.\nIf you would like to purchase another item, please enter sufficient funds.");
+            System.out.println("If you would like to exit instead, enter -1.");
+            return balance;
+        }
+
         String choice = scan.nextLine();
 
         // If user inputs "Y", then purchase details are listed. If not, then nothing is listed
-        if (choice.equals("Y")) {
+        if (choice.equals("Y") || choice.equals("y")) {
             System.out.println("Item cost: " + price);
             System.out.println("Your change is: " + change);
             System.out.println("Have a wonderful day!\nIf you would like to purchase another item, please enter sufficient funds.");
             System.out.println("If you would like to exit instead, enter -1.");
             return balance;
+        } else if (choice.equals("N") || choice.equals("n")) {
+            System.out.println("Have a wonderful day!\nIf you would like to purchase another item, please enter sufficient funds.");
+            System.out.println("If you would like to exit instead, enter -1.");
+            return balance;
         } else {
+            System.out.println("Invalid option selected, defaulting to 'Y'.\n");
+            System.out.println("Item cost: " + price);
+            System.out.println("Your change is: " + change);
             System.out.println("Have a wonderful day!\nIf you would like to purchase another item, please enter sufficient funds.");
             System.out.println("If you would like to exit instead, enter -1.");
             return balance;
@@ -58,7 +72,8 @@ public class vending {
         Scanner venScan = new Scanner(System.in);
         int balance = 0;
         boolean hasMoney = true;
-        System.out.println("Welcome to the vending machine. Please enter money into the machine. Only $1 bills are allowed.\n\nHow much would you like to enter?");
+        boolean firstRun = true;
+        System.out.println("Welcome to the vending machine. Please enter money into the machine. Only $1 bills are allowed.\n\nHow many would you like to enter?");
 
         System.out.println("1: Snickers: $2.49");
         System.out.println("2: Milkyway: $2.49");
@@ -74,8 +89,10 @@ public class vending {
         while (hasMoney) {
             if (venScan.hasNextInt()) { // Check if the next input is a valid integer
                 balance = venScan.nextInt();
-                venScan.nextLine();  // Consume the newline left by nextInt()
+                venScan.nextLine();
                 
+                System.out.println(balance + " dollar bills have been added to the vending machine.");
+
                 if (balance > 0) {
                     System.out.println("The following items are the options in the vending machine:");
                     hasMoney = true;
@@ -91,7 +108,7 @@ public class vending {
             } else {
                 // Input validation if the input is not an integer
                 System.out.println("Invalid input. Please enter a valid amount in $1 bills.");
-                venScan.next(); // Consume the invalid input and continue the loop
+                venScan.next();
                 continue;
             }
 
@@ -119,7 +136,7 @@ public class vending {
 
             System.out.println("Please enter a number into the machine.");
             int machineNumber = venScan.nextInt();
-            venScan.nextLine(); // Consume newline left-over after nextInt()
+            venScan.nextLine();
 
             switch (machineNumber) {
                 case 1:

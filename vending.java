@@ -129,7 +129,7 @@ public class vending {
         System.out.println("|| 4c - Pretzels         $1.49 ||");
         System.out.println("======= To exit, enter -1 =======");
 
-        // This while loop allows the vending machine to be operational unless forcibly closed (enter -1)
+        // This while loop allows the vending machine to be operational unless forcibly closed (enter -1 into console to exit)
         while (hasMoney) { // hasMoney would be used if the money value saved every transaction, but that is not yet implemented.
             if (venScan.hasNextInt()) { // Check if the next input is a valid integer
                 balance = venScan.nextInt();
